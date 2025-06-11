@@ -1,0 +1,102 @@
+entity SPSParticipatingCodes
+{
+    biccode String maxlength(8),
+    bicname String maxlength(12),
+    bicstatus String maxlength(10)
+}
+
+
+entity SPSOutgoingTransactions
+{
+    messageid String maxlength(40),
+    channelcode String maxlength(16),
+    callbackurl String maxlength(100),
+    messagetype String maxlength(28),
+    transcurrency String maxlength(10),
+    debtorsname String maxlength(100),
+    debtorsaccountid String maxlength(30),
+    debtorsbankcode String maxlength(18),
+    debtorsphone String maxlength(19),
+    beneficiaryname String maxlength(100),
+    beneficiaryaccountid String maxlength(30),
+    beneficiarybankcode String maxlength(19),
+    beneficiaryphone String maxlength(19),
+    narration String maxlength(100),
+    externalreference String maxlength(40),
+    cbsreference String maxlength(40),
+    messageendtoendid String maxlength(40),
+    transactionstatus String maxlength(19),
+    transactionstatusdesc String maxlength(200),
+    spsstatus String maxlength(19),
+    spsstatusdesc String maxlength(200),
+    cbsstatus String maxlength(19),
+    cbsstatusdesc String maxlength(200),
+    requestInstanttime Instant,
+    isomessagetype String maxlength(29),
+    requestjson String,
+    spsrequestxml String,
+    spsresponsexml String,
+    amount Double,
+    callbackstatus String maxlength(10),
+    callbackstatusdesc String maxlength(100)
+}
+
+
+entity SPSIncomingTransactions
+{
+    messageid String maxlength(40),
+    channelcode String maxlength(12),
+    callbackurl String maxlength(100),
+    messagetype String maxlength(20),
+    transcurrency String maxlength(6),
+    debtorsname String maxlength(100),
+    debtorsaccountid String maxlength(30),
+    debtorsbankcode String maxlength(20),
+    debtorsphone String maxlength(20),
+    beneficiaryname String maxlength(100),
+    beneficiaryaccountid String maxlength(30),
+    beneficiarybankcode String maxlength(20),
+    beneficiaryphone String maxlength(20),
+    narration String maxlength(100),
+    externalreference String maxlength(40),
+    cbsreference String maxlength(40),
+    messageendtoendid String maxlength(40),
+    transactionstatus String maxlength(20),
+    transactionstatusdesc String maxlength(200),
+    spsstatus String maxlength(20),
+    spsstatusdesc String maxlength(200),
+    cbsstatus String maxlength(20),
+    cbsstatusdesc String maxlength(200),
+    requestInstanttime Instant,
+    isomessagetype String maxlength(20),
+    requestjson String,
+    spsrequestxml String,
+    spsresponsexml String,
+    amount Double
+}
+
+
+
+entity CBSTransactions
+{
+    messageid String maxlength(14),
+    channelcode String maxlength(4),
+    messagetype String maxlength(3),
+    transcurrency String maxlength(3),
+    debtorsname String maxlength(100),
+    debtorsaccountid String maxlength(14),
+    debtorsphone String maxlength(14),
+    creditorsname String maxlength(100),
+    creditorsaccountid String maxlength(14),
+    creditorsphone String maxlength(14),
+    narration String maxlength(100),
+    externalreference String maxlength(40),
+    cbsreference String maxlength(40),
+    cbsstatus String maxlength(10),
+    cbsstatusdesc String maxlength(200),
+    requestInstanttime Instant,
+    requestjson String,
+    cbsrequestxml String,
+    cbsresponsexml String,
+    amount Double
+}

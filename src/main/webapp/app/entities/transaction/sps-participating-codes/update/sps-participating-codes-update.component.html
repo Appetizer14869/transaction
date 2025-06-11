@@ -1,0 +1,91 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-sps-participating-codes-heading"
+        data-cy="SPSParticipatingCodesCreateUpdateHeading"
+        jhiTranslate="transactionApp.transactionSPsParticipatingCodes.home.createOrEditLabel"
+      >
+        Create or edit a SPS Participating Codes
+      </h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="transactionApp.transactionSPsParticipatingCodes.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        @let biccodeRef = editForm.get('biccode')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_biccode" jhiTranslate="transactionApp.transactionSPsParticipatingCodes.biccode"
+            >Biccode</label
+          >
+          <input type="text" class="form-control" name="biccode" id="field_biccode" data-cy="biccode" formControlName="biccode" />
+          @if (biccodeRef.invalid && (biccodeRef.dirty || biccodeRef.touched)) {
+            <div>
+              @if (editForm.get('biccode')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '8' }"
+                  >This field cannot be longer than 8 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let bicnameRef = editForm.get('bicname')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_bicname" jhiTranslate="transactionApp.transactionSPsParticipatingCodes.bicname"
+            >Bicname</label
+          >
+          <input type="text" class="form-control" name="bicname" id="field_bicname" data-cy="bicname" formControlName="bicname" />
+          @if (bicnameRef.invalid && (bicnameRef.dirty || bicnameRef.touched)) {
+            <div>
+              @if (editForm.get('bicname')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '12' }"
+                  >This field cannot be longer than 12 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let bicstatusRef = editForm.get('bicstatus')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_bicstatus" jhiTranslate="transactionApp.transactionSPsParticipatingCodes.bicstatus"
+            >Bicstatus</label
+          >
+          <input type="text" class="form-control" name="bicstatus" id="field_bicstatus" data-cy="bicstatus" formControlName="bicstatus" />
+          @if (bicstatusRef.invalid && (bicstatusRef.dirty || bicstatusRef.touched)) {
+            <div>
+              @if (editForm.get('bicstatus')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '10' }"
+                  >This field cannot be longer than 10 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

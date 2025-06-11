@@ -1,0 +1,112 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (cBSTransactions(); as cBSTransactionsRef) {
+      <div>
+        <h2 data-cy="cBSTransactionsDetailsHeading">
+          <span jhiTranslate="transactionApp.transactionCBsTransactions.detail.title">CBS Transactions</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ cBSTransactionsRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionCBsTransactions.messageid">Messageid</span></dt>
+          <dd>
+            <span>{{ cBSTransactionsRef.messageid }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionCBsTransactions.channelcode">Channelcode</span></dt>
+          <dd>
+            <span>{{ cBSTransactionsRef.channelcode }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionCBsTransactions.messagetype">Messagetype</span></dt>
+          <dd>
+            <span>{{ cBSTransactionsRef.messagetype }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionCBsTransactions.transcurrency">Transcurrency</span></dt>
+          <dd>
+            <span>{{ cBSTransactionsRef.transcurrency }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionCBsTransactions.debtorsname">Debtorsname</span></dt>
+          <dd>
+            <span>{{ cBSTransactionsRef.debtorsname }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionCBsTransactions.debtorsaccountid">Debtorsaccountid</span></dt>
+          <dd>
+            <span>{{ cBSTransactionsRef.debtorsaccountid }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionCBsTransactions.debtorsphone">Debtorsphone</span></dt>
+          <dd>
+            <span>{{ cBSTransactionsRef.debtorsphone }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionCBsTransactions.creditorsname">Creditorsname</span></dt>
+          <dd>
+            <span>{{ cBSTransactionsRef.creditorsname }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionCBsTransactions.creditorsaccountid">Creditorsaccountid</span></dt>
+          <dd>
+            <span>{{ cBSTransactionsRef.creditorsaccountid }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionCBsTransactions.creditorsphone">Creditorsphone</span></dt>
+          <dd>
+            <span>{{ cBSTransactionsRef.creditorsphone }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionCBsTransactions.narration">Narration</span></dt>
+          <dd>
+            <span>{{ cBSTransactionsRef.narration }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionCBsTransactions.externalreference">Externalreference</span></dt>
+          <dd>
+            <span>{{ cBSTransactionsRef.externalreference }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionCBsTransactions.cbsreference">Cbsreference</span></dt>
+          <dd>
+            <span>{{ cBSTransactionsRef.cbsreference }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionCBsTransactions.cbsstatus">Cbsstatus</span></dt>
+          <dd>
+            <span>{{ cBSTransactionsRef.cbsstatus }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionCBsTransactions.cbsstatusdesc">Cbsstatusdesc</span></dt>
+          <dd>
+            <span>{{ cBSTransactionsRef.cbsstatusdesc }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionCBsTransactions.requestInstanttime">Request Instanttime</span></dt>
+          <dd>
+            <span>{{ cBSTransactionsRef.requestInstanttime | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionCBsTransactions.requestjson">Requestjson</span></dt>
+          <dd>
+            <span>{{ cBSTransactionsRef.requestjson }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionCBsTransactions.cbsrequestxml">Cbsrequestxml</span></dt>
+          <dd>
+            <span>{{ cBSTransactionsRef.cbsrequestxml }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionCBsTransactions.cbsresponsexml">Cbsresponsexml</span></dt>
+          <dd>
+            <span>{{ cBSTransactionsRef.cbsresponsexml }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionCBsTransactions.amount">Amount</span></dt>
+          <dd>
+            <span>{{ cBSTransactionsRef.amount }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/transaction/cbs-transactions', cBSTransactionsRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,43 @@
+{
+  "transactionApp": {
+    "transactionCBsTransactions": {
+      "home": {
+        "title": "CBS Transactions",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new CBS Transactions",
+        "createOrEditLabel": "Create or edit a CBS Transactions",
+        "notFound": "No CBS Transactions found"
+      },
+      "created": "A new CBS Transactions is created with identifier {{ param }}",
+      "updated": "A CBS Transactions is updated with identifier {{ param }}",
+      "deleted": "A CBS Transactions is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete CBS Transactions {{ id }}?"
+      },
+      "detail": {
+        "title": "CBS Transactions"
+      },
+      "id": "ID",
+      "messageid": "Messageid",
+      "channelcode": "Channelcode",
+      "messagetype": "Messagetype",
+      "transcurrency": "Transcurrency",
+      "debtorsname": "Debtorsname",
+      "debtorsaccountid": "Debtorsaccountid",
+      "debtorsphone": "Debtorsphone",
+      "creditorsname": "Creditorsname",
+      "creditorsaccountid": "Creditorsaccountid",
+      "creditorsphone": "Creditorsphone",
+      "narration": "Narration",
+      "externalreference": "Externalreference",
+      "cbsreference": "Cbsreference",
+      "cbsstatus": "Cbsstatus",
+      "cbsstatusdesc": "Cbsstatusdesc",
+      "requestInstanttime": "Request Instanttime",
+      "requestjson": "Requestjson",
+      "cbsrequestxml": "Cbsrequestxml",
+      "cbsresponsexml": "Cbsresponsexml",
+      "amount": "Amount"
+    }
+  }
+}

@@ -1,0 +1,449 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-cbs-transactions-heading"
+        data-cy="CBSTransactionsCreateUpdateHeading"
+        jhiTranslate="transactionApp.transactionCBsTransactions.home.createOrEditLabel"
+      >
+        Create or edit a CBS Transactions
+      </h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="transactionApp.transactionCBsTransactions.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        @let messageidRef = editForm.get('messageid')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_messageid" jhiTranslate="transactionApp.transactionCBsTransactions.messageid"
+            >Messageid</label
+          >
+          <input type="text" class="form-control" name="messageid" id="field_messageid" data-cy="messageid" formControlName="messageid" />
+          @if (messageidRef.invalid && (messageidRef.dirty || messageidRef.touched)) {
+            <div>
+              @if (editForm.get('messageid')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '14' }"
+                  >This field cannot be longer than 14 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let channelcodeRef = editForm.get('channelcode')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_channelcode" jhiTranslate="transactionApp.transactionCBsTransactions.channelcode"
+            >Channelcode</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="channelcode"
+            id="field_channelcode"
+            data-cy="channelcode"
+            formControlName="channelcode"
+          />
+          @if (channelcodeRef.invalid && (channelcodeRef.dirty || channelcodeRef.touched)) {
+            <div>
+              @if (editForm.get('channelcode')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '4' }"
+                  >This field cannot be longer than 4 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let messagetypeRef = editForm.get('messagetype')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_messagetype" jhiTranslate="transactionApp.transactionCBsTransactions.messagetype"
+            >Messagetype</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="messagetype"
+            id="field_messagetype"
+            data-cy="messagetype"
+            formControlName="messagetype"
+          />
+          @if (messagetypeRef.invalid && (messagetypeRef.dirty || messagetypeRef.touched)) {
+            <div>
+              @if (editForm.get('messagetype')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '3' }"
+                  >This field cannot be longer than 3 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let transcurrencyRef = editForm.get('transcurrency')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_transcurrency" jhiTranslate="transactionApp.transactionCBsTransactions.transcurrency"
+            >Transcurrency</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="transcurrency"
+            id="field_transcurrency"
+            data-cy="transcurrency"
+            formControlName="transcurrency"
+          />
+          @if (transcurrencyRef.invalid && (transcurrencyRef.dirty || transcurrencyRef.touched)) {
+            <div>
+              @if (editForm.get('transcurrency')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '3' }"
+                  >This field cannot be longer than 3 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let debtorsnameRef = editForm.get('debtorsname')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_debtorsname" jhiTranslate="transactionApp.transactionCBsTransactions.debtorsname"
+            >Debtorsname</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="debtorsname"
+            id="field_debtorsname"
+            data-cy="debtorsname"
+            formControlName="debtorsname"
+          />
+          @if (debtorsnameRef.invalid && (debtorsnameRef.dirty || debtorsnameRef.touched)) {
+            <div>
+              @if (editForm.get('debtorsname')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '100' }"
+                  >This field cannot be longer than 100 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let debtorsaccountidRef = editForm.get('debtorsaccountid')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_debtorsaccountid" jhiTranslate="transactionApp.transactionCBsTransactions.debtorsaccountid"
+            >Debtorsaccountid</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="debtorsaccountid"
+            id="field_debtorsaccountid"
+            data-cy="debtorsaccountid"
+            formControlName="debtorsaccountid"
+          />
+          @if (debtorsaccountidRef.invalid && (debtorsaccountidRef.dirty || debtorsaccountidRef.touched)) {
+            <div>
+              @if (editForm.get('debtorsaccountid')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '14' }"
+                  >This field cannot be longer than 14 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let debtorsphoneRef = editForm.get('debtorsphone')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_debtorsphone" jhiTranslate="transactionApp.transactionCBsTransactions.debtorsphone"
+            >Debtorsphone</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="debtorsphone"
+            id="field_debtorsphone"
+            data-cy="debtorsphone"
+            formControlName="debtorsphone"
+          />
+          @if (debtorsphoneRef.invalid && (debtorsphoneRef.dirty || debtorsphoneRef.touched)) {
+            <div>
+              @if (editForm.get('debtorsphone')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '14' }"
+                  >This field cannot be longer than 14 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let creditorsnameRef = editForm.get('creditorsname')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_creditorsname" jhiTranslate="transactionApp.transactionCBsTransactions.creditorsname"
+            >Creditorsname</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="creditorsname"
+            id="field_creditorsname"
+            data-cy="creditorsname"
+            formControlName="creditorsname"
+          />
+          @if (creditorsnameRef.invalid && (creditorsnameRef.dirty || creditorsnameRef.touched)) {
+            <div>
+              @if (editForm.get('creditorsname')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '100' }"
+                  >This field cannot be longer than 100 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let creditorsaccountidRef = editForm.get('creditorsaccountid')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_creditorsaccountid"
+            jhiTranslate="transactionApp.transactionCBsTransactions.creditorsaccountid"
+            >Creditorsaccountid</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="creditorsaccountid"
+            id="field_creditorsaccountid"
+            data-cy="creditorsaccountid"
+            formControlName="creditorsaccountid"
+          />
+          @if (creditorsaccountidRef.invalid && (creditorsaccountidRef.dirty || creditorsaccountidRef.touched)) {
+            <div>
+              @if (editForm.get('creditorsaccountid')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '14' }"
+                  >This field cannot be longer than 14 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let creditorsphoneRef = editForm.get('creditorsphone')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_creditorsphone" jhiTranslate="transactionApp.transactionCBsTransactions.creditorsphone"
+            >Creditorsphone</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="creditorsphone"
+            id="field_creditorsphone"
+            data-cy="creditorsphone"
+            formControlName="creditorsphone"
+          />
+          @if (creditorsphoneRef.invalid && (creditorsphoneRef.dirty || creditorsphoneRef.touched)) {
+            <div>
+              @if (editForm.get('creditorsphone')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '14' }"
+                  >This field cannot be longer than 14 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let narrationRef = editForm.get('narration')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_narration" jhiTranslate="transactionApp.transactionCBsTransactions.narration"
+            >Narration</label
+          >
+          <input type="text" class="form-control" name="narration" id="field_narration" data-cy="narration" formControlName="narration" />
+          @if (narrationRef.invalid && (narrationRef.dirty || narrationRef.touched)) {
+            <div>
+              @if (editForm.get('narration')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '100' }"
+                  >This field cannot be longer than 100 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let externalreferenceRef = editForm.get('externalreference')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_externalreference" jhiTranslate="transactionApp.transactionCBsTransactions.externalreference"
+            >Externalreference</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="externalreference"
+            id="field_externalreference"
+            data-cy="externalreference"
+            formControlName="externalreference"
+          />
+          @if (externalreferenceRef.invalid && (externalreferenceRef.dirty || externalreferenceRef.touched)) {
+            <div>
+              @if (editForm.get('externalreference')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '40' }"
+                  >This field cannot be longer than 40 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let cbsreferenceRef = editForm.get('cbsreference')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_cbsreference" jhiTranslate="transactionApp.transactionCBsTransactions.cbsreference"
+            >Cbsreference</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="cbsreference"
+            id="field_cbsreference"
+            data-cy="cbsreference"
+            formControlName="cbsreference"
+          />
+          @if (cbsreferenceRef.invalid && (cbsreferenceRef.dirty || cbsreferenceRef.touched)) {
+            <div>
+              @if (editForm.get('cbsreference')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '40' }"
+                  >This field cannot be longer than 40 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let cbsstatusRef = editForm.get('cbsstatus')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_cbsstatus" jhiTranslate="transactionApp.transactionCBsTransactions.cbsstatus"
+            >Cbsstatus</label
+          >
+          <input type="text" class="form-control" name="cbsstatus" id="field_cbsstatus" data-cy="cbsstatus" formControlName="cbsstatus" />
+          @if (cbsstatusRef.invalid && (cbsstatusRef.dirty || cbsstatusRef.touched)) {
+            <div>
+              @if (editForm.get('cbsstatus')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '10' }"
+                  >This field cannot be longer than 10 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let cbsstatusdescRef = editForm.get('cbsstatusdesc')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_cbsstatusdesc" jhiTranslate="transactionApp.transactionCBsTransactions.cbsstatusdesc"
+            >Cbsstatusdesc</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="cbsstatusdesc"
+            id="field_cbsstatusdesc"
+            data-cy="cbsstatusdesc"
+            formControlName="cbsstatusdesc"
+          />
+          @if (cbsstatusdescRef.invalid && (cbsstatusdescRef.dirty || cbsstatusdescRef.touched)) {
+            <div>
+              @if (editForm.get('cbsstatusdesc')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '200' }"
+                  >This field cannot be longer than 200 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_requestInstanttime"
+            jhiTranslate="transactionApp.transactionCBsTransactions.requestInstanttime"
+            >Request Instanttime</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_requestInstanttime"
+              data-cy="requestInstanttime"
+              type="datetime-local"
+              class="form-control"
+              name="requestInstanttime"
+              formControlName="requestInstanttime"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_requestjson" jhiTranslate="transactionApp.transactionCBsTransactions.requestjson"
+            >Requestjson</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="requestjson"
+            id="field_requestjson"
+            data-cy="requestjson"
+            formControlName="requestjson"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_cbsrequestxml" jhiTranslate="transactionApp.transactionCBsTransactions.cbsrequestxml"
+            >Cbsrequestxml</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="cbsrequestxml"
+            id="field_cbsrequestxml"
+            data-cy="cbsrequestxml"
+            formControlName="cbsrequestxml"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_cbsresponsexml" jhiTranslate="transactionApp.transactionCBsTransactions.cbsresponsexml"
+            >Cbsresponsexml</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="cbsresponsexml"
+            id="field_cbsresponsexml"
+            data-cy="cbsresponsexml"
+            formControlName="cbsresponsexml"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_amount" jhiTranslate="transactionApp.transactionCBsTransactions.amount">Amount</label>
+          <input type="number" class="form-control" name="amount" id="field_amount" data-cy="amount" formControlName="amount" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

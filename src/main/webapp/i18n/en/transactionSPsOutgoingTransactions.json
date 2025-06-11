@@ -1,0 +1,54 @@
+{
+  "transactionApp": {
+    "transactionSPsOutgoingTransactions": {
+      "home": {
+        "title": "SPS Outgoing Transactions",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new SPS Outgoing Transactions",
+        "createOrEditLabel": "Create or edit a SPS Outgoing Transactions",
+        "notFound": "No SPS Outgoing Transactions found"
+      },
+      "created": "A new SPS Outgoing Transactions is created with identifier {{ param }}",
+      "updated": "A SPS Outgoing Transactions is updated with identifier {{ param }}",
+      "deleted": "A SPS Outgoing Transactions is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete SPS Outgoing Transactions {{ id }}?"
+      },
+      "detail": {
+        "title": "SPS Outgoing Transactions"
+      },
+      "id": "ID",
+      "messageid": "Messageid",
+      "channelcode": "Channelcode",
+      "callbackurl": "Callbackurl",
+      "messagetype": "Messagetype",
+      "transcurrency": "Transcurrency",
+      "debtorsname": "Debtorsname",
+      "debtorsaccountid": "Debtorsaccountid",
+      "debtorsbankcode": "Debtorsbankcode",
+      "debtorsphone": "Debtorsphone",
+      "beneficiaryname": "Beneficiaryname",
+      "beneficiaryaccountid": "Beneficiaryaccountid",
+      "beneficiarybankcode": "Beneficiarybankcode",
+      "beneficiaryphone": "Beneficiaryphone",
+      "narration": "Narration",
+      "externalreference": "Externalreference",
+      "cbsreference": "Cbsreference",
+      "messageendtoendid": "Messageendtoendid",
+      "transactionstatus": "Transactionstatus",
+      "transactionstatusdesc": "Transactionstatusdesc",
+      "spsstatus": "Spsstatus",
+      "spsstatusdesc": "Spsstatusdesc",
+      "cbsstatus": "Cbsstatus",
+      "cbsstatusdesc": "Cbsstatusdesc",
+      "requestInstanttime": "Request Instanttime",
+      "isomessagetype": "Isomessagetype",
+      "requestjson": "Requestjson",
+      "spsrequestxml": "Spsrequestxml",
+      "spsresponsexml": "Spsresponsexml",
+      "amount": "Amount",
+      "callbackstatus": "Callbackstatus",
+      "callbackstatusdesc": "Callbackstatusdesc"
+    }
+  }
+}

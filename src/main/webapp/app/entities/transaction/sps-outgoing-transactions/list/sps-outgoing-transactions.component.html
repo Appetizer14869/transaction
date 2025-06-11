@@ -1,0 +1,341 @@
+<div>
+  <h2 id="page-heading" data-cy="SPSOutgoingTransactionsHeading">
+    <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.home.title">SPS Outgoing Transactions</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-sps-outgoing-transactions"
+        [routerLink]="['/transaction/sps-outgoing-transactions/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.home.createLabel"
+          >Create a new SPS Outgoing Transactions</span
+        >
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error />
+
+  <jhi-alert />
+
+  @if (sPSOutgoingTransactions().length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.home.notFound">No SPS Outgoing Transactions found</span>
+    </div>
+  } @else {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(sortState)]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="messageid">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.messageid">Messageid</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="channelcode">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.channelcode">Channelcode</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="callbackurl">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.callbackurl">Callbackurl</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="messagetype">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.messagetype">Messagetype</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="transcurrency">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.transcurrency">Transcurrency</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="debtorsname">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.debtorsname">Debtorsname</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="debtorsaccountid">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.debtorsaccountid">Debtorsaccountid</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="debtorsbankcode">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.debtorsbankcode">Debtorsbankcode</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="debtorsphone">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.debtorsphone">Debtorsphone</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="beneficiaryname">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.beneficiaryname">Beneficiaryname</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="beneficiaryaccountid">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.beneficiaryaccountid">Beneficiaryaccountid</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="beneficiarybankcode">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.beneficiarybankcode">Beneficiarybankcode</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="beneficiaryphone">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.beneficiaryphone">Beneficiaryphone</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="narration">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.narration">Narration</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="externalreference">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.externalreference">Externalreference</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="cbsreference">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.cbsreference">Cbsreference</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="messageendtoendid">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.messageendtoendid">Messageendtoendid</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="transactionstatus">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.transactionstatus">Transactionstatus</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="transactionstatusdesc">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.transactionstatusdesc">Transactionstatusdesc</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="spsstatus">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.spsstatus">Spsstatus</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="spsstatusdesc">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.spsstatusdesc">Spsstatusdesc</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="cbsstatus">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.cbsstatus">Cbsstatus</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="cbsstatusdesc">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.cbsstatusdesc">Cbsstatusdesc</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="requestInstanttime">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.requestInstanttime">Request Instanttime</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="isomessagetype">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.isomessagetype">Isomessagetype</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="requestjson">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.requestjson">Requestjson</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="spsrequestxml">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.spsrequestxml">Spsrequestxml</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="spsresponsexml">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.spsresponsexml">Spsresponsexml</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="amount">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.amount">Amount</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="callbackstatus">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.callbackstatus">Callbackstatus</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="callbackstatusdesc">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.callbackstatusdesc">Callbackstatusdesc</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (sPSOutgoingTransactions of sPSOutgoingTransactions(); track trackId(sPSOutgoingTransactions)) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/transaction/sps-outgoing-transactions', sPSOutgoingTransactions.id, 'view']">{{
+                  sPSOutgoingTransactions.id
+                }}</a>
+              </td>
+              <td>{{ sPSOutgoingTransactions.messageid }}</td>
+              <td>{{ sPSOutgoingTransactions.channelcode }}</td>
+              <td>{{ sPSOutgoingTransactions.callbackurl }}</td>
+              <td>{{ sPSOutgoingTransactions.messagetype }}</td>
+              <td>{{ sPSOutgoingTransactions.transcurrency }}</td>
+              <td>{{ sPSOutgoingTransactions.debtorsname }}</td>
+              <td>{{ sPSOutgoingTransactions.debtorsaccountid }}</td>
+              <td>{{ sPSOutgoingTransactions.debtorsbankcode }}</td>
+              <td>{{ sPSOutgoingTransactions.debtorsphone }}</td>
+              <td>{{ sPSOutgoingTransactions.beneficiaryname }}</td>
+              <td>{{ sPSOutgoingTransactions.beneficiaryaccountid }}</td>
+              <td>{{ sPSOutgoingTransactions.beneficiarybankcode }}</td>
+              <td>{{ sPSOutgoingTransactions.beneficiaryphone }}</td>
+              <td>{{ sPSOutgoingTransactions.narration }}</td>
+              <td>{{ sPSOutgoingTransactions.externalreference }}</td>
+              <td>{{ sPSOutgoingTransactions.cbsreference }}</td>
+              <td>{{ sPSOutgoingTransactions.messageendtoendid }}</td>
+              <td>{{ sPSOutgoingTransactions.transactionstatus }}</td>
+              <td>{{ sPSOutgoingTransactions.transactionstatusdesc }}</td>
+              <td>{{ sPSOutgoingTransactions.spsstatus }}</td>
+              <td>{{ sPSOutgoingTransactions.spsstatusdesc }}</td>
+              <td>{{ sPSOutgoingTransactions.cbsstatus }}</td>
+              <td>{{ sPSOutgoingTransactions.cbsstatusdesc }}</td>
+              <td>{{ sPSOutgoingTransactions.requestInstanttime | formatMediumDatetime }}</td>
+              <td>{{ sPSOutgoingTransactions.isomessagetype }}</td>
+              <td>{{ sPSOutgoingTransactions.requestjson }}</td>
+              <td>{{ sPSOutgoingTransactions.spsrequestxml }}</td>
+              <td>{{ sPSOutgoingTransactions.spsresponsexml }}</td>
+              <td>{{ sPSOutgoingTransactions.amount }}</td>
+              <td>{{ sPSOutgoingTransactions.callbackstatus }}</td>
+              <td>{{ sPSOutgoingTransactions.callbackstatusdesc }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/transaction/sps-outgoing-transactions', sPSOutgoingTransactions.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/transaction/sps-outgoing-transactions', sPSOutgoingTransactions.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button
+                    type="submit"
+                    (click)="delete(sPSOutgoingTransactions)"
+                    class="btn btn-danger btn-sm"
+                    data-cy="entityDeleteButton"
+                  >
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

@@ -1,0 +1,26 @@
+{
+  "transactionApp": {
+    "transactionSPsParticipatingCodes": {
+      "home": {
+        "title": "SPSParticipatingCodes",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau SPS Participating Codes",
+        "createOrEditLabel": "Créer ou éditer un SPS Participating Codes",
+        "notFound": "Aucun SPS Participating Codes trouvé"
+      },
+      "created": "Un nouveau SPS Participating Codes a été créé avec l'identifiant {{ param }}",
+      "updated": "Le SPS Participating Codes avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le SPS Participating Codes avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le SPS Participating Codes {{ id }} ?"
+      },
+      "detail": {
+        "title": "SPS Participating Codes"
+      },
+      "id": "ID",
+      "biccode": "Biccode",
+      "bicname": "Bicname",
+      "bicstatus": "Bicstatus"
+    }
+  }
+}

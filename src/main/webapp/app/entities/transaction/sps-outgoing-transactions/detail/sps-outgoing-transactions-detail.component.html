@@ -1,0 +1,160 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (sPSOutgoingTransactions(); as sPSOutgoingTransactionsRef) {
+      <div>
+        <h2 data-cy="sPSOutgoingTransactionsDetailsHeading">
+          <span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.detail.title">SPS Outgoing Transactions</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.messageid">Messageid</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.messageid }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.channelcode">Channelcode</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.channelcode }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.callbackurl">Callbackurl</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.callbackurl }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.messagetype">Messagetype</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.messagetype }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.transcurrency">Transcurrency</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.transcurrency }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.debtorsname">Debtorsname</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.debtorsname }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.debtorsaccountid">Debtorsaccountid</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.debtorsaccountid }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.debtorsbankcode">Debtorsbankcode</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.debtorsbankcode }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.debtorsphone">Debtorsphone</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.debtorsphone }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.beneficiaryname">Beneficiaryname</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.beneficiaryname }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.beneficiaryaccountid">Beneficiaryaccountid</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.beneficiaryaccountid }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.beneficiarybankcode">Beneficiarybankcode</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.beneficiarybankcode }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.beneficiaryphone">Beneficiaryphone</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.beneficiaryphone }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.narration">Narration</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.narration }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.externalreference">Externalreference</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.externalreference }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.cbsreference">Cbsreference</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.cbsreference }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.messageendtoendid">Messageendtoendid</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.messageendtoendid }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.transactionstatus">Transactionstatus</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.transactionstatus }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.transactionstatusdesc">Transactionstatusdesc</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.transactionstatusdesc }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.spsstatus">Spsstatus</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.spsstatus }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.spsstatusdesc">Spsstatusdesc</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.spsstatusdesc }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.cbsstatus">Cbsstatus</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.cbsstatus }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.cbsstatusdesc">Cbsstatusdesc</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.cbsstatusdesc }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.requestInstanttime">Request Instanttime</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.requestInstanttime | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.isomessagetype">Isomessagetype</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.isomessagetype }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.requestjson">Requestjson</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.requestjson }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.spsrequestxml">Spsrequestxml</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.spsrequestxml }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.spsresponsexml">Spsresponsexml</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.spsresponsexml }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.amount">Amount</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.amount }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.callbackstatus">Callbackstatus</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.callbackstatus }}</span>
+          </dd>
+          <dt><span jhiTranslate="transactionApp.transactionSPsOutgoingTransactions.callbackstatusdesc">Callbackstatusdesc</span></dt>
+          <dd>
+            <span>{{ sPSOutgoingTransactionsRef.callbackstatusdesc }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button
+          type="button"
+          [routerLink]="['/transaction/sps-outgoing-transactions', sPSOutgoingTransactionsRef.id, 'edit']"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>
