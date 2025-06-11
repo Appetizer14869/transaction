@@ -26,6 +26,8 @@ springdoc:
 ---
 eureka:
   client:
+  service-url:
+  defaultZone: http://localhost:8761/eureka/
     enabled: true
     healthcheck:
       enabled: true
