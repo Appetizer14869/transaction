@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity SPSOutgoingTransactions.
+    -->
+    <changeSet id="20250611094056-1" author="jhipster">
+        <createTable tableName="sps_outgoing_transactions">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="messageid" type="varchar(40)">
+                <constraints nullable="true" />
+            </column>
+            <column name="channelcode" type="varchar(16)">
+                <constraints nullable="true" />
+            </column>
+            <column name="callbackurl" type="varchar(100)">
+                <constraints nullable="true" />
+            </column>
+            <column name="messagetype" type="varchar(28)">
+                <constraints nullable="true" />
+            </column>
+            <column name="transcurrency" type="varchar(10)">
+                <constraints nullable="true" />
+            </column>
+            <column name="debtorsname" type="varchar(100)">
+                <constraints nullable="true" />
+            </column>
+            <column name="debtorsaccountid" type="varchar(30)">
+                <constraints nullable="true" />
+            </column>
+            <column name="debtorsbankcode" type="varchar(18)">
+                <constraints nullable="true" />
+            </column>
+            <column name="debtorsphone" type="varchar(19)">
+                <constraints nullable="true" />
+            </column>
+            <column name="beneficiaryname" type="varchar(100)">
+                <constraints nullable="true" />
+            </column>
+            <column name="beneficiaryaccountid" type="varchar(30)">
+                <constraints nullable="true" />
+            </column>
+            <column name="beneficiarybankcode" type="varchar(19)">
+                <constraints nullable="true" />
+            </column>
+            <column name="beneficiaryphone" type="varchar(19)">
+                <constraints nullable="true" />
+            </column>
+            <column name="narration" type="varchar(100)">
+                <constraints nullable="true" />
+            </column>
+            <column name="externalreference" type="varchar(40)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cbsreference" type="varchar(40)">
+                <constraints nullable="true" />
+            </column>
+            <column name="messageendtoendid" type="varchar(40)">
+                <constraints nullable="true" />
+            </column>
+            <column name="transactionstatus" type="varchar(19)">
+                <constraints nullable="true" />
+            </column>
+            <column name="transactionstatusdesc" type="varchar(200)">
+                <constraints nullable="true" />
+            </column>
+            <column name="spsstatus" type="varchar(19)">
+                <constraints nullable="true" />
+            </column>
+            <column name="spsstatusdesc" type="varchar(200)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cbsstatus" type="varchar(19)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cbsstatusdesc" type="varchar(200)">
+                <constraints nullable="true" />
+            </column>
+            <column name="request_instanttime" type="${datetimeType}">
+                <constraints nullable="true" />
+            </column>
+            <column name="isomessagetype" type="varchar(29)">
+                <constraints nullable="true" />
+            </column>
+            <column name="requestjson" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="spsrequestxml" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="spsresponsexml" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="amount" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="callbackstatus" type="varchar(10)">
+                <constraints nullable="true" />
+            </column>
+            <column name="callbackstatusdesc" type="varchar(100)">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="sps_outgoing_transactions" columnName="request_instanttime" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20250611094056-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/sps_outgoing_transactions.csv"
+                  separator=";"
+                  tableName="sps_outgoing_transactions"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="messageid" type="string"/>
+            <column name="channelcode" type="string"/>
+            <column name="callbackurl" type="string"/>
+            <column name="messagetype" type="string"/>
+            <column name="transcurrency" type="string"/>
+            <column name="debtorsname" type="string"/>
+            <column name="debtorsaccountid" type="string"/>
+            <column name="debtorsbankcode" type="string"/>
+            <column name="debtorsphone" type="string"/>
+            <column name="beneficiaryname" type="string"/>
+            <column name="beneficiaryaccountid" type="string"/>
+            <column name="beneficiarybankcode" type="string"/>
+            <column name="beneficiaryphone" type="string"/>
+            <column name="narration" type="string"/>
+            <column name="externalreference" type="string"/>
+            <column name="cbsreference" type="string"/>
+            <column name="messageendtoendid" type="string"/>
+            <column name="transactionstatus" type="string"/>
+            <column name="transactionstatusdesc" type="string"/>
+            <column name="spsstatus" type="string"/>
+            <column name="spsstatusdesc" type="string"/>
+            <column name="cbsstatus" type="string"/>
+            <column name="cbsstatusdesc" type="string"/>
+            <column name="request_instanttime" type="date"/>
+            <column name="isomessagetype" type="string"/>
+            <column name="requestjson" type="string"/>
+            <column name="spsrequestxml" type="string"/>
+            <column name="spsresponsexml" type="string"/>
+            <column name="amount" type="numeric"/>
+            <column name="callbackstatus" type="string"/>
+            <column name="callbackstatusdesc" type="string"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

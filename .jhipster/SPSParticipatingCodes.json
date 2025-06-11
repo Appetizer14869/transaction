@@ -1,0 +1,33 @@
+{
+  "annotations": {
+    "changelogDate": "20250611094055"
+  },
+  "applications": "*",
+  "clientRootFolder": "transaction",
+  "databaseType": "sql",
+  "entityTableName": "sps_participating_codes",
+  "fields": [
+    {
+      "fieldName": "biccode",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "8"
+    },
+    {
+      "fieldName": "bicname",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "12"
+    },
+    {
+      "fieldName": "bicstatus",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "10"
+    }
+  ],
+  "microserviceName": "transaction",
+  "name": "SPSParticipatingCodes",
+  "relationships": [],
+  "searchEngine": "no"
+}

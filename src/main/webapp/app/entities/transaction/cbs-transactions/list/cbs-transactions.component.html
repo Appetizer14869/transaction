@@ -1,0 +1,244 @@
+<div>
+  <h2 id="page-heading" data-cy="CBSTransactionsHeading">
+    <span jhiTranslate="transactionApp.transactionCBsTransactions.home.title">CBS Transactions</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span jhiTranslate="transactionApp.transactionCBsTransactions.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-cbs-transactions"
+        [routerLink]="['/transaction/cbs-transactions/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="transactionApp.transactionCBsTransactions.home.createLabel">Create a new CBS Transactions</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error />
+
+  <jhi-alert />
+
+  @if (cBSTransactions().length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="transactionApp.transactionCBsTransactions.home.notFound">No CBS Transactions found</span>
+    </div>
+  } @else {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(sortState)]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="messageid">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionCBsTransactions.messageid">Messageid</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="channelcode">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionCBsTransactions.channelcode">Channelcode</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="messagetype">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionCBsTransactions.messagetype">Messagetype</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="transcurrency">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionCBsTransactions.transcurrency">Transcurrency</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="debtorsname">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionCBsTransactions.debtorsname">Debtorsname</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="debtorsaccountid">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionCBsTransactions.debtorsaccountid">Debtorsaccountid</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="debtorsphone">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionCBsTransactions.debtorsphone">Debtorsphone</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="creditorsname">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionCBsTransactions.creditorsname">Creditorsname</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="creditorsaccountid">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionCBsTransactions.creditorsaccountid">Creditorsaccountid</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="creditorsphone">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionCBsTransactions.creditorsphone">Creditorsphone</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="narration">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionCBsTransactions.narration">Narration</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="externalreference">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionCBsTransactions.externalreference">Externalreference</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="cbsreference">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionCBsTransactions.cbsreference">Cbsreference</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="cbsstatus">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionCBsTransactions.cbsstatus">Cbsstatus</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="cbsstatusdesc">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionCBsTransactions.cbsstatusdesc">Cbsstatusdesc</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="requestInstanttime">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionCBsTransactions.requestInstanttime">Request Instanttime</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="requestjson">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionCBsTransactions.requestjson">Requestjson</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="cbsrequestxml">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionCBsTransactions.cbsrequestxml">Cbsrequestxml</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="cbsresponsexml">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionCBsTransactions.cbsresponsexml">Cbsresponsexml</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="amount">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionCBsTransactions.amount">Amount</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (cBSTransactions of cBSTransactions(); track trackId(cBSTransactions)) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/transaction/cbs-transactions', cBSTransactions.id, 'view']">{{ cBSTransactions.id }}</a>
+              </td>
+              <td>{{ cBSTransactions.messageid }}</td>
+              <td>{{ cBSTransactions.channelcode }}</td>
+              <td>{{ cBSTransactions.messagetype }}</td>
+              <td>{{ cBSTransactions.transcurrency }}</td>
+              <td>{{ cBSTransactions.debtorsname }}</td>
+              <td>{{ cBSTransactions.debtorsaccountid }}</td>
+              <td>{{ cBSTransactions.debtorsphone }}</td>
+              <td>{{ cBSTransactions.creditorsname }}</td>
+              <td>{{ cBSTransactions.creditorsaccountid }}</td>
+              <td>{{ cBSTransactions.creditorsphone }}</td>
+              <td>{{ cBSTransactions.narration }}</td>
+              <td>{{ cBSTransactions.externalreference }}</td>
+              <td>{{ cBSTransactions.cbsreference }}</td>
+              <td>{{ cBSTransactions.cbsstatus }}</td>
+              <td>{{ cBSTransactions.cbsstatusdesc }}</td>
+              <td>{{ cBSTransactions.requestInstanttime | formatMediumDatetime }}</td>
+              <td>{{ cBSTransactions.requestjson }}</td>
+              <td>{{ cBSTransactions.cbsrequestxml }}</td>
+              <td>{{ cBSTransactions.cbsresponsexml }}</td>
+              <td>{{ cBSTransactions.amount }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/transaction/cbs-transactions', cBSTransactions.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/transaction/cbs-transactions', cBSTransactions.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(cBSTransactions)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

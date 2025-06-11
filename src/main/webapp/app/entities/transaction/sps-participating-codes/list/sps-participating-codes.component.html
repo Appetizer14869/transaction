@@ -1,0 +1,110 @@
+<div>
+  <h2 id="page-heading" data-cy="SPSParticipatingCodesHeading">
+    <span jhiTranslate="transactionApp.transactionSPsParticipatingCodes.home.title">SPS Participating Codes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [animation]="isLoading ? 'spin' : undefined"></fa-icon>
+        <span jhiTranslate="transactionApp.transactionSPsParticipatingCodes.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-sps-participating-codes"
+        [routerLink]="['/transaction/sps-participating-codes/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="transactionApp.transactionSPsParticipatingCodes.home.createLabel">Create a new SPS Participating Codes</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error />
+
+  <jhi-alert />
+
+  @if (sPSParticipatingCodes().length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="transactionApp.transactionSPsParticipatingCodes.home.notFound">No SPS Participating Codes found</span>
+    </div>
+  } @else {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(sortState)]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="biccode">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsParticipatingCodes.biccode">Biccode</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="bicname">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsParticipatingCodes.bicname">Bicname</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="bicstatus">
+              <div class="d-flex">
+                <span jhiTranslate="transactionApp.transactionSPsParticipatingCodes.bicstatus">Bicstatus</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (sPSParticipatingCodes of sPSParticipatingCodes(); track trackId(sPSParticipatingCodes)) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/transaction/sps-participating-codes', sPSParticipatingCodes.id, 'view']">{{
+                  sPSParticipatingCodes.id
+                }}</a>
+              </td>
+              <td>{{ sPSParticipatingCodes.biccode }}</td>
+              <td>{{ sPSParticipatingCodes.bicname }}</td>
+              <td>{{ sPSParticipatingCodes.bicstatus }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/transaction/sps-participating-codes', sPSParticipatingCodes.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/transaction/sps-participating-codes', sPSParticipatingCodes.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(sPSParticipatingCodes)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>
